@@ -1,0 +1,27 @@
+.main-toolbar-button{
+    height: 100%;
+    background-color: transparent;
+    color: rgb(12,12,12);
+    border: none;
+    text-decoration: underline;
+}
+.sidebar-semester-button{
+    background-color: transparent;
+    color: rgb(142, 138, 162);
+    border: none;
+    height: 25%;
+    width: 100%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2em;
+
+}
+.sidebar-course-button{
+    background-color: transparent;
+    color: rgb(87, 95, 187);
+    width: 100%;
+    border: none;
+    height: 15%;
+}
+.sidebar-course-button:hover{
+    color: white;
+}

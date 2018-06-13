@@ -1,0 +1,37 @@
+.header {
+  text-align: center;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.sidebar-semester{
+  background-color: aquamarine;
+  border-radius: 3%;
+  margin: 2%;
+}
+
+.main-object{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-left: 1%;
+  height: 100%;
+}
+.main-list{
+  width: 100%;
+  height: 100%;
+  padding: 0%;
+}
+
+
+.course-view{
+  color:black;
+}
+.term-view{
+  color: red;
+}
+.year-view{
+  color: blue;
+}
