@@ -8,12 +8,12 @@ export const mySyllabus = [
                 {
                     date: 'Oct 10',
                     title: 'Exam 1',
-                    result: '93%'
+                    result: 93
                 },
                 {
                     date: 'Nov 21',
                     title: 'Exam 2',
-                    result: '86%'
+                    result: 86
                 },
                 {
                     date: 'Dec 9',
@@ -25,8 +25,18 @@ export const mySyllabus = [
             percentage: '30%',
             scores: [
                 {
+                    date: 'Oct 1',
+                    title: 'HW 1',
+                    result: 62
+                },
+                {
+                    date: 'Nov 6',
+                    title: 'HW 2',
+                    result: 88
+                },
+                {
                     date: 'Dec 6',
-                    title: 'HW 1'
+                    title: 'HW 3'
                 }
             ]
         },

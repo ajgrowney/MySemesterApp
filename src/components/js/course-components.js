@@ -13,9 +13,9 @@ class CourseComponentObj extends Component {
     loadScores(){
         return this.comp_data.map( object => {
             if(object.result !== undefined){
-                return (<p>{object.title}: {object.result}</p>)
+                return (<p className='course-result'>{object.title}: {object.result}</p>)
             }else{
-                return(<p>{object.title}: {object.date}</p>)
+                return(<p className='course-upcoming'>{object.title}: {object.date}</p>)
             }
         })
     }
