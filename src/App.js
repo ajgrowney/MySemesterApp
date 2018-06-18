@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { MainToolbar } from './components/js/toolbars';
 import { SidebarButton } from './components/js/buttons';
-import { refreshMainPane } from './index';
+import { MainView } from './components/js/views';
+
 //
 // Sidebar Component on Left Side of Application
 //
@@ -28,7 +29,7 @@ class SidebarObj extends Component {
   courseButtons(year_in, term_in){
     return this.props.courseList.map( course => {
       if( course["year"] === year_in && course['term'] === term_in){
-        return (<SidebarButton class='sidebar-course-button' onClick={refreshMainPane(course['year'],course['term'], course['department'], course['number'])} key={course.id} department={course.department} number={course.number}/>)
+        return (<SidebarButton class='sidebar-course-button' key={course.id} department={course.department} number={course.number}/>)
       }
     });
   }
@@ -57,34 +58,24 @@ class HeaderObj extends Component {
   }
 }
 
+//
+// Main Component
+//
 class MainPaneObj extends Component {
   // Parameters: year, term, dept, course
   constructor(props){
     super(props);
     this.viewType = this.props.view;
-    this.year = this.props.params[0];
-    this.term = this.props.params[1];
-    this.dept = this.props.params[2];
-    this.course = this.props.params[3];
   }
   
-  loadMainView(){
-    return(
-      <div className={this.viewType+ "-view"}>
-        Data
-      </div>
-    );
-  }
   render() {
     return (
-      <div className="main-object">
-
+      <div className="main-container">
         <div className="main-toolbar">
-        {console.log(this.props.params)}
           <MainToolbar params={this.props.params} />
         </div>
-        {this.loadMainView()}
-      </div>
+          <MainView view={this.viewType} params ={this.props.params}/>
+        </div>
 
     );
   }

@@ -1,0 +1,16 @@
+.course-component{
+    background-color: red;
+    margin: 1%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+#title{
+    grid-row: 1;
+    grid-column: 1;
+    text-decoration: underline;
+}
+#percentage{
+    grid-row: 1;
+    grid-column: 2;
+    text-decoration: underline;
+}

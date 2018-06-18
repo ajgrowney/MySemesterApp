@@ -1,0 +1,23 @@
+h1{
+	color: red;
+}
+.main-pane-container{
+	display: grid;
+	height: 100%;
+}
+.content-wrapper{
+	background-color: aqua;
+	height: 100%;
+	width: 100%;
+}
+.content-overview{
+	grid-row: 1;
+	grid-column: 2;
+	color: black;
+	background-color: yellow;
+	height: 100%;
+	width: 100%;
+}
+.content-components{
+	height: 80%;
+}
