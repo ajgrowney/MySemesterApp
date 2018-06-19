@@ -13,26 +13,29 @@ class CourseComponentObj extends Component {
     loadScores(){
         return this.comp_data.map( object => {
             if(object.result !== undefined){
-                return (<p className='course-result'>{object.title}: {object.result}</p>)
+                return (
+                    <div className='course-event'>
+                        <div className='course-item'>{object.title}:</div>
+                        <div className='course-result'>{object.result}</div>
+                    </div>
+                    )
             }else{
-                return(<p className='course-upcoming'>{object.title}: {object.date}</p>)
+                return (
+                    <div className='course-event'>
+                        <div className='course-item'>{object.title}:</div>
+                        <div className='course-upcoming'>{object.date}</div>
+                    </div>
+                )
             }
         })
     }
 
     render(){
-        let styling = {
-            comp_style :{
-                'height': this.percentage
-            }
-        }
         return(
             <div style={{height: this.percentage}} className="course-component">
-                <h3 id='title'>{this.title}</h3>
-                <h3 id='percentage'>{this.percentage}</h3>
-                <div className="course-component-scores">
-                    {this.loadScores()}
-                </div>
+                <div id='title'>{this.title}</div>
+                <div id='percentage'>{this.percentage}</div>
+                {this.loadScores()}
             </div>
         )
     }

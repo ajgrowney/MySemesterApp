@@ -2,16 +2,18 @@ import React, { Component } from 'react'
 import '../css/views.css'
 import { mySyllabus, myCourses } from '../data'
 import { CourseComponent } from './course-components'
-import { Circle } from 'rc-progress'
+import CircularProgressbar from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
-let sample = ["HW", "Final"];
 
 class MainViewObj extends Component {
 	constructor(props){
 		super(props);
 		this.viewType = this.props.view;
 		this.object = this.props.params;
-		this.course_syllabus = mySyllabus.find( course => (course.id === this.object.id));
+		if(this.viewType === 'course'){
+			this.course_syllabus = mySyllabus.find( course => (course.id === this.object.id));
+		}
 	}
 	loadComponents(){
 		return this.course_syllabus.components.map( comp => {
@@ -20,7 +22,6 @@ class MainViewObj extends Component {
 	}
 
 	loadViewType(view_in){
-
 		if(this.viewType === 'course'){
 			return(
 				<div className= 'content-wrapper' id='content-wrapper'>
@@ -40,50 +41,65 @@ class MainViewObj extends Component {
 			)
 		}
 	}
-
-	loadAverages(){
-		let averages = [];
+	loadProgress(averages){
+		console.log(averages);
+		let totalGrade = 0;
+		let totalPercentage = 0;
+		averages.map(element => {
+			let selected_key = (Object.keys(element)[0]);
+			let course_comp_percentage = parseFloat(this.course_syllabus[selected_key].percentage) / 100.0;
+			if(!isNaN(element[selected_key])){
+				console.log(element[selected_key])
+				totalPercentage += course_comp_percentage;
+				totalGrade += element[selected_key]*course_comp_percentage;
+			}else{
+				console.log('NaN')
+			}
+			console.log(course_comp_percentage);
+		})
+		console.log(totalPercentage);
+		totalGrade = Math.round(((totalGrade/ totalPercentage) * 10) / 10);
+		
+		console.log(totalGrade);
+		return(<CircularProgressbar className="progress-bar" percentage={parseInt(totalGrade)} styles={{path: {stroke: 'black'}}}/>)
+	}
+	loadAverages(averages){
 		this.course_syllabus.components.map( comp => {
-
 			let scores_array = this.course_syllabus[comp].scores;
-
 			if(scores_array !== undefined || scores_array.length !==0){
-				let avg_sum = 0;
-				let avg_counter = 0;
-				console.log(scores_array);
-				scores_array.forEach(element => {
+				let sum = 0; let counter = 0;
 
-					if(element.result !== undefined){
-						avg_sum = avg_sum + element.result;
-						avg_counter++;
-					}
+				scores_array.forEach(element => { (element.result !== undefined) ? (sum += element.result, counter++): ' ';});
 
-				});
-				let avg_result = avg_sum / avg_counter;
-				let avg_object = {}
-				avg_object[comp] = avg_result;
+				let avg_result = (sum / counter);
+				let avg_object = {[comp]: avg_result}
 				averages.push(avg_object);
 			}
-		})
+		});
+
 		return averages.map( key => {
+			// Averages = [{selected_key: calculated_avg}, ...]
 			let selected_key = (Object.keys(key)[0]);
 			let calculated_avg = key[selected_key] || 'n/a';
+
 			return (
 				<center>
 					<div className='average-container'>
-						{selected_key} Average: {calculated_avg}
+						<div className='average-event'>{selected_key} Average:</div>
+						<div className='average-result'>{calculated_avg}</div>
 					</div>
 				</center>
 			)
 		})
 	}
 	loadRightSide(){
-
-
+		let averages = [];
 		return(
 			<div id="content-overview" className= 'content-overview'>
-				<Circle percent='83' strokeWidth='3' strokeColor='#000000' />
-				{this.loadAverages()}
+				<div className="content-averages">
+					{this.loadAverages(averages)}
+				</div>
+				{this.loadProgress(averages)}
 			</div>
 		)
 	}

@@ -1,8 +1,10 @@
 .main-toolbar-button{
     height: 100%;
+    width: 8%;
     background-color: transparent;
     color: rgb(12,12,12);
     border: none;
+    display: inline block;
     text-decoration: underline;
 }
 .sidebar-semester-button{

@@ -1,6 +1,3 @@
-h1{
-	color: red;
-}
 .main-pane-container{
 	display: grid;
 	height: 100%;
@@ -13,6 +10,8 @@ h1{
 .content-overview{
 	grid-row: 1;
 	grid-column: 2;
+	display: grid;
+	grid-template-rows: 50% 50%;
 	color: black;
 	background-color: yellow;
 	height: 100%;
@@ -22,5 +21,12 @@ h1{
 	height: 80%;
 }
 .average-container{
-	margin-top: 2%;
+	margin-top: 2%;	
+}
+
+.progress-bar{
+	grid-row: 1;
+	width: 100%;
+	height: 100%;
+	align-content: center;
 }
