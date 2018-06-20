@@ -64,18 +64,20 @@ class MainViewObj extends Component {
 		return(<CircularProgressbar className="progress-bar" percentage={parseInt(totalGrade)} styles={{path: {stroke: 'black'}}}/>)
 	}
 	loadAverages(averages){
-		this.course_syllabus.components.map( comp => {
-			let scores_array = this.course_syllabus[comp].scores;
-			if(scores_array !== undefined || scores_array.length !==0){
-				let sum = 0; let counter = 0;
 
-				scores_array.forEach(element => { (element.result !== undefined) ? (sum += element.result, counter++): ' ';});
-
-				let avg_result = (sum / counter);
-				let avg_object = {[comp]: avg_result}
-				averages.push(avg_object);
-			}
-		});
+		this.course_syllabus.components.reduce( (total, object) => {
+			let running = 0;
+			let counter = 0;
+			this.course_syllabus[object].scores.forEach( (obj) => {
+				if(obj.result !== undefined){
+					running += obj.result;
+					counter++;
+				}
+			});
+			let avg_result = running / counter;
+			let avg_object = {[object]: avg_result}
+			averages.push(avg_object);
+		}, []);
 
 		return averages.map( key => {
 			// Averages = [{selected_key: calculated_avg}, ...]
@@ -99,6 +101,7 @@ class MainViewObj extends Component {
 				<div className="content-averages">
 					{this.loadAverages(averages)}
 				</div>
+				{console.log(averages)}
 				{this.loadProgress(averages)}
 			</div>
 		)
