@@ -32,7 +32,7 @@ class CourseComponentObj extends Component {
 
     render(){
         return(
-            <div style={{height: this.percentage}} className="course-component">
+            <div style={{height: this.percentage, fontSize: this.percentage*10}} className="course-component">
                 <div id='title'>{this.title}</div>
                 <div id='percentage'>{this.percentage}</div>
                 {this.loadScores()}

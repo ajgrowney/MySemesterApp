@@ -15,6 +15,7 @@ class SidebarObj extends Component {
     this.state = {
       view: this.props.viewType || 'default'
     }
+    this.semesterList = this.props.semesterList;
     this.selectYear = this.props.year;
     this.selectTerm = this.props.term;
   }
@@ -36,12 +37,14 @@ class SidebarObj extends Component {
 
   //----------Main Render Function--------------
   render() {
-    return(
+    return this.semesterList.map( (semester)=> {
+      return(
+      
       <div className="sidebar-semester">
-        {this.semesterButton(this.selectYear, this.selectTerm)}
-        {this.courseButtons(this.selectYear, this.selectTerm)}
+        {this.semesterButton(semester.year, semester.term)}
+        {this.courseButtons(semester.year, semester.term)}
       </div>
-    )
+    )})
   }
 }
 

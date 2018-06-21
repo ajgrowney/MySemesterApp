@@ -25,7 +25,7 @@ class MainViewObj extends Component {
 		if(this.viewType === 'course'){
 			return(
 				<div className= 'content-wrapper' id='content-wrapper'>
-					<h1>{ this.object.displayString }</h1>
+					<h2 id="course-display-string">{ this.object.displayString }</h2>
 					<div className='content-components'>
 						{this.loadComponents()}
 					</div>
@@ -69,10 +69,7 @@ class MainViewObj extends Component {
 			let running = 0;
 			let counter = 0;
 			this.course_syllabus[object].scores.forEach( (obj) => {
-				if(obj.result !== undefined){
-					running += obj.result;
-					counter++;
-				}
+				if(obj.result !== undefined){running += obj.result; counter++;}
 			});
 			let avg_result = running / counter;
 			let avg_object = {[object]: avg_result}

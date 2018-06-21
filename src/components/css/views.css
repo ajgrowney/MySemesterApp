@@ -2,24 +2,31 @@
 	display: grid;
 	height: 100%;
 }
+
+/*---Left Side*/
 .content-wrapper{
-	background-color: aqua;
+	background-color: #82A0BC;
+	grid-column: 1;
 	height: 100%;
 	width: 100%;
+	padding-left padding-right: 1.5%;
 }
+.content-components{
+	height: 80%;
+}
+
+/*Right side----*/
 .content-overview{
 	grid-row: 1;
 	grid-column: 2;
 	display: grid;
 	grid-template-rows: 50% 50%;
 	color: black;
-	background-color: yellow;
+	background-color: #545E75;
 	height: 100%;
 	width: 100%;
 }
-.content-components{
-	height: 80%;
-}
+
 .average-container{
 	margin-top: 2%;	
 }

@@ -30,13 +30,23 @@ export const mySyllabus = [
                     result: 100
                 },
                 {
-                    date: 'Nov 6',
+                    date: 'Oct 16',
                     title: 'HW 2',
                     result: 92
                 },
                 {
-                    date: 'Dec 6',
+                    date: 'Oct 30',
                     title: 'HW 3',
+                    result: 68
+                },
+                {
+                    date: 'Nov 6',
+                    title: 'HW 4',
+                    result: 92
+                },
+                {
+                    date: 'Dec 6',
+                    title: 'HW 5',
                     result: 68
                 }
             ]
@@ -114,5 +124,15 @@ export const myCourses = [
         department: 'EECS',
         number: 101,
         displayString: 'EECS 101'
+    }
+]
+export const mySemesters = [
+    {
+        term: 'Spring',
+        year: 2016
+    },
+    {
+        term: 'Fall',
+        year: 2017
     }
 ]
