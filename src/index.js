@@ -11,14 +11,15 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state = {
-            view: this.props.view || 'default'
+            view: this.props.view || 'default',
+            object: this.props.obj
         }
-        this.handleView = this.handleView.bind(this);
     }
-    handleView(view_in){
-        console.log('view update: ',view_in);
+    handleView(view_in, obj_in){
+        console.log('handling', view_in, obj_in)
         this.setState({
-            view: view_in
+            view: view_in || 'course',
+            object: obj_in || 0
         })
     }
     render(){
@@ -28,10 +29,10 @@ class App extends Component{
                     <Header />
                 </div>
                 <div id="sidebar-nav">
-                    <Sidebar function={this.handleView} courseList={myCourses} semesterList={mySemesters} />
+                    <Sidebar function={this.handleView.bind(this)} courseList={myCourses} semesterList={mySemesters} />
                 </div>
                 <div id="main-pane">
-                    <MainPane view={this.state.view} params={myCourses[view_id]}/>
+                    <MainPane view={this.state.view} params={this.state.object}/>
                 </div>
             </div>
         )
@@ -40,6 +41,6 @@ class App extends Component{
     
 }
 
-ReactDOM.render(<App view={'course'}/>, document.getElementById('root'));
+ReactDOM.render(<App view={'course'} obj={myCourses[view_id]}/>, document.getElementById('root'));
 
 registerServiceWorker();

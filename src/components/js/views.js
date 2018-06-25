@@ -11,12 +11,19 @@ class MainViewObj extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			view: props.view || 'default'
+			view: props.view || 'default',
+			object: props.params || 0
 		}
-		this.object = this.props.params;
 		if(this.state.view === 'course'){
-			this.course_syllabus = mySyllabus.find( course => (course.id === this.object.id));
+			this.course_syllabus = mySyllabus.find( course => (course.id === this.state.object.id));
 		}
+	}
+	componentWillReceiveProps(newProps){
+		console.log(newProps);
+		this.setState({
+			view: newProps.view,
+			object: newProps.params
+		});
 	}
 	loadComponents(){
 		return this.course_syllabus.components.map( comp => {
@@ -28,21 +35,21 @@ class MainViewObj extends Component {
 		if(view_in === 'course'){
 			return(
 				<div id='main-course' className= 'main-left'>
-					<h2 id="course-display-string">{ this.object.displayString }</h2>
+					<h2 id="course-display-string">{ this.state.object.displayString }</h2>
 					<div className='main-left-components'>{this.loadComponents()}</div>
 				</div>
 			)
 		}else if(view_in === 'term'){
 			return(
 				<div id='main-term' className='main-left'>
-					<h2>{ this.object.displayString }</h2>
+					<h2>{ this.state.object.displayString }</h2>
 					<div className='main-left-components'>Here</div>
 				</div>
 			)
 		}else{
 			return(
 				<div id='main-year' className='main-left'>
-					<h2>{this.object.displayString}</h2>
+					<h2>{this.state.object.displayString}</h2>
 					<div className='main-left-components'>Here</div>
 				</div>
 			)

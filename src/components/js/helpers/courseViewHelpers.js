@@ -4,25 +4,20 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 export function course_loadProgress(averages, course_syllabus){
-    console.log(averages);
     let totalGrade = 0;
     let totalPercentage = 0;
     averages.map(element => {
         let selected_key = (Object.keys(element)[0]);
         let course_comp_percentage = parseFloat(course_syllabus[selected_key].percentage) / 100.0;
         if (!isNaN(element[selected_key])) {
-            console.log(element[selected_key])
             totalPercentage += course_comp_percentage;
             totalGrade += element[selected_key] * course_comp_percentage;
         } else {
             console.log('NaN')
         }
-        console.log(course_comp_percentage);
     })
-    console.log(totalPercentage);
     totalGrade = Math.round(((totalGrade / totalPercentage) * 10) / 10);
 
-    console.log(totalGrade);
     return (<CircularProgressbar className="progress-bar" percentage={parseInt(totalGrade)} styles={{ path: { stroke: 'black' } }} />)
 }
 

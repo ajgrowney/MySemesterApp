@@ -13,30 +13,23 @@ class SidebarObj extends Component {
   constructor(props){
     super(props);
     this.semesterList = props.semesterList;
-    this.selectYear = props.year;
-    this.selectTerm = props.term;
     this.function = props.function;
-  }
-  testCourse(input){
-      console.log('course button',input);
-  }
-  testTerm(input){
-      console.log('sem button', input);
-  }
-  test(){
-    console.log('yoyo')
   }
   //-----------Helper Functions-----------------
   semesterButton(year_in, term_in){
     if(year_in !== undefined){
-      return (<SidebarButton handleClick={this.function} class='sidebar-semester-button' key={year_in+term_in} term={term_in} year={year_in} />);
+      let key = (""+year_in+term_in);
+      return (<SidebarButton handleClick={this.function} class='sidebar-semester-button' id={key} term={term_in} year={year_in} />);
     }
   }
 
   courseButtons(year_in, term_in){
     return this.props.courseList.map( course => {
       if( course["year"] === year_in && course['term'] === term_in){
-        return (<SidebarButton handleClick={this.function} class='sidebar-course-button' key={course.id} department={course.department} number={course.number}/>)
+        console.log(course.id)
+        let key = course.id;
+        console.log(key);
+        return (<SidebarButton handleClick={this.function} class='sidebar-course-button' id={key} department={course.department} number={course.number}/>)
       }
     });
   }
@@ -74,9 +67,13 @@ class MainPaneObj extends Component {
   // Parameters: year, term, dept, course
   constructor(props){
     super(props);
+    console.log(this.props.view)
     this.state = {
       view: this.props.view || 'default'
     }
+  }
+  componentWillReceiveProps(newProps){
+    this.setState({view: newProps.view});
   }
   
   render() {
