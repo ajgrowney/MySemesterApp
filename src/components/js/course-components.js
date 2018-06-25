@@ -5,13 +5,23 @@ import '../css/course-components.css'
 class CourseComponentObj extends Component {
     constructor(props){
         super(props);
-        this.title= this.props.component_type || 'Exams';
-        this.percentage = this.props.component_data.percentage || 'undef%';
-        this.comp_data = this.props.component_data.scores || [{'no': 1}];
+        this.state = {
+            title: props.component_type,
+            percentage: props.component_data.percentage,
+            comp_data: props.component_data.scores
+        }
+
+    }
+    componentWillReceiveProps(newProps){
+        this.setState({
+            title: newProps.component_type,
+            percentage: newProps.component_data.percentage,
+            comp_data: newProps.component_data.scores
+        });
     }
 
     loadScores(){
-        return this.comp_data.map( object => {
+        return this.state.comp_data.map( object => {
             if(object.result !== undefined){
                 return (
                     <div className='course-event'>
@@ -32,9 +42,9 @@ class CourseComponentObj extends Component {
 
     render(){
         return(
-            <div style={{height: this.percentage, fontSize: this.percentage*10}} className="course-component">
-                <div id='title'>{this.title}</div>
-                <div id='percentage'>{this.percentage}</div>
+            <div style={{height: this.state.percentage, fontSize: this.state.percentage*10}} className="course-component">
+                <div id='title'>{this.state.title}</div>
+                <div id='percentage'>{this.state.percentage}</div>
                 {this.loadScores()}
             </div>
         )

@@ -6,7 +6,8 @@
     grid-template-columns: 80% 20%;
     grid-template-rows: 20% auto;
     height: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 #title{
     grid-row: 1;

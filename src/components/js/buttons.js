@@ -20,7 +20,6 @@ class SidebarButtonObj extends Component {
 
     constructor(props){
         super(props);
-        console.log(props.id)
         this.class = props.class || 'generic-button';
         this.dept = props.department || 'Course';
         this.number = props.number || 101;
@@ -31,7 +30,6 @@ class SidebarButtonObj extends Component {
     }
 
     render() {
-        console.log(this)
         if(this.class === 'sidebar-course-button'){
 
             return (<button onClick={this.function.bind(this,'course',this.id)} className={this.class}>{this.dept + " "+ this.number}</button>);

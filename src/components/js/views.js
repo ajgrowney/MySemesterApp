@@ -12,22 +12,23 @@ class MainViewObj extends Component {
 		super(props);
 		this.state = {
 			view: props.view || 'default',
-			object: props.params || 0
+			object: mySyllabus.find(course => (course.id ===props.params.id)) || 0
 		}
 		if(this.state.view === 'course'){
 			this.course_syllabus = mySyllabus.find( course => (course.id === this.state.object.id));
 		}
 	}
 	componentWillReceiveProps(newProps){
-		console.log(newProps);
 		this.setState({
 			view: newProps.view,
-			object: newProps.params
+			object: mySyllabus.find( course => (course.id === newProps.params))
 		});
+
+
 	}
 	loadComponents(){
-		return this.course_syllabus.components.map( comp => {
-			return <CourseComponent component_type={comp} component_data={this.course_syllabus[comp]}/>
+		return this.state.object.components.map( comp => {
+			return <CourseComponent component_type={comp} component_data={this.state.object[comp]}/>
 		})
 	}
 
@@ -35,7 +36,7 @@ class MainViewObj extends Component {
 		if(view_in === 'course'){
 			return(
 				<div id='main-course' className= 'main-left'>
-					<h2 id="course-display-string">{ this.state.object.displayString }</h2>
+					<h2 id="course-display-string">{ myCourses.find( course => this.state.object.id === course.id).displayString || 'eggs' }</h2>
 					<div className='main-left-components'>{this.loadComponents()}</div>
 				</div>
 			)
@@ -61,8 +62,8 @@ class MainViewObj extends Component {
 			let averages = [];
 			return(
 				<div className= 'main-right'>
-					<div className="content-averages">{course_loadAverages(averages, this.course_syllabus)}</div>
-					{course_loadProgress(averages, this.course_syllabus)}
+					<div className="content-averages">{course_loadAverages(averages, this.state.object)}</div>
+					{course_loadProgress(averages, this.state.object)}
 				</div>
 			)
 		}else if(view_in === 'term'){

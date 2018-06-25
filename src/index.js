@@ -16,7 +16,6 @@ class App extends Component{
         }
     }
     handleView(view_in, obj_in){
-        console.log('handling', view_in, obj_in)
         this.setState({
             view: view_in || 'course',
             object: obj_in || 0

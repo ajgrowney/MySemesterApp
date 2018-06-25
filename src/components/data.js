@@ -90,6 +90,49 @@ export const mySyllabus = [
                 }
             ]
         }
+    },
+    {
+        id: 3,
+        components: ['Exam', 'Lab', 'HW', 'Final'],
+        'Exam': {
+            percentage: '25%',
+            scores: [
+                {
+                    date: 'Sep 10',
+                    title: 'Exam 1',
+                    result: 91
+                }
+            ]
+        },
+        'Lab' : {
+            percentage: '15%',
+            scores: [
+                {
+                    date: 'Sep 30',
+                    title: 'Lab 1',
+                    result: 68
+                }
+            ]
+        },
+        'HW': {
+            percentage: '30%',
+            scores: [
+                {
+                    date: 'Sep 15',
+                    title: 'HW 1',
+                    result: 83
+                }
+            ]
+        },
+        'Final': {
+            percentage: '30%',
+            scores: [
+                {
+                    date: 'Dec 19',
+                    title: 'Final Exam'
+                }
+            ]
+        }
     }
 ]
 

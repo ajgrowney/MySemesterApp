@@ -26,9 +26,7 @@ class SidebarObj extends Component {
   courseButtons(year_in, term_in){
     return this.props.courseList.map( course => {
       if( course["year"] === year_in && course['term'] === term_in){
-        console.log(course.id)
         let key = course.id;
-        console.log(key);
         return (<SidebarButton handleClick={this.function} class='sidebar-course-button' id={key} department={course.department} number={course.number}/>)
       }
     });
@@ -67,22 +65,24 @@ class MainPaneObj extends Component {
   // Parameters: year, term, dept, course
   constructor(props){
     super(props);
-    console.log(this.props.view)
     this.state = {
-      view: this.props.view || 'default'
+      view: this.props.view || 'default',
+      object: this.props.params || {}
     }
   }
   componentWillReceiveProps(newProps){
-    this.setState({view: newProps.view});
+    this.setState({
+      view: newProps.view,
+      object: newProps.params});
   }
   
   render() {
     return (
       <div className="main-container">
         <div className="main-toolbar">
-          <MainToolbar params={this.props.params} />
+          <MainToolbar params={this.state.object} />
         </div>
-          <MainView view={this.state.view} params={this.props.params}/>
+          <MainView view={this.state.view} params={this.state.object}/>
         </div>
 
     );
