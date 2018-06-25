@@ -25,13 +25,17 @@ class SidebarButtonObj extends Component {
         this.number = props.number || 101;
         this.term = props.term || 'n/a';
         this.year = props.year || 'n/a';
+        this.function = props.handleClick;
     }
 
+    butTest(){
+        console.log('yuh')
+    }
     render() {
         if(this.class === 'sidebar-course-button'){
-            return(<button className={this.class}>{this.dept + " "+ this.number}</button>);
+            return (<button onClick={this.function.bind(this,'course')} className={this.class}>{this.dept + " "+ this.number}</button>);
         }else if(this.class === 'sidebar-semester-button'){
-            return (<button className={this.class}>{this.term + " "+ this.year}</button>);
+            return (<button onClick={this.function.bind(this, 'term')} className={this.class}>{this.term + " "+ this.year}</button>);
         }else{
             return(<button className={this.class}>Generic</button>)
         }

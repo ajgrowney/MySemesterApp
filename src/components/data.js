@@ -17,7 +17,8 @@ export const mySyllabus = [
                 },
                 {
                     date: 'Dec 9',
-                    title: 'Exam 3'
+                    title: 'Exam 3',
+                    result: 88
                 }
             ]
         },
@@ -32,22 +33,21 @@ export const mySyllabus = [
                 {
                     date: 'Oct 16',
                     title: 'HW 2',
-                    result: 92
+                    result: 100
                 },
                 {
                     date: 'Oct 30',
                     title: 'HW 3',
-                    result: 68
+                    result: 100
                 },
                 {
                     date: 'Nov 6',
-                    title: 'HW 4',
-                    result: 92
+                    title: 'HW 4'
                 },
                 {
                     date: 'Dec 6',
                     title: 'HW 5',
-                    result: 68
+                    result: 65
                 }
             ]
         },
@@ -56,7 +56,8 @@ export const mySyllabus = [
             scores: [
                 {
                     date: 'Dec 13',
-                    title: 'Final Exam'
+                    title: 'Final Exam',
+                    result: 80
                 }
             ]
         }
@@ -129,10 +130,12 @@ export const myCourses = [
 export const mySemesters = [
     {
         term: 'Spring',
-        year: 2016
+        year: 2016,
+        displayString: 'Spring 2016'
     },
     {
         term: 'Fall',
-        year: 2017
+        year: 2017,
+        displayString: 'Fall 2017'
     }
 ]

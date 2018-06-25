@@ -4,19 +4,19 @@
 }
 
 /*---Left Side*/
-.content-wrapper{
+.main-left{
 	background-color: #82A0BC;
 	grid-column: 1;
 	height: 100%;
 	width: 100%;
 	padding-left padding-right: 1.5%;
 }
-.content-components{
+.main-left-components{
 	height: 80%;
 }
 
 /*Right side----*/
-.content-overview{
+.main-right{
 	grid-row: 1;
 	grid-column: 2;
 	display: grid;

@@ -12,25 +12,31 @@ class SidebarObj extends Component {
   //props: courseList, term, year
   constructor(props){
     super(props);
-    this.state = {
-      view: this.props.viewType || 'default'
-    }
-    this.semesterList = this.props.semesterList;
-    this.selectYear = this.props.year;
-    this.selectTerm = this.props.term;
+    this.semesterList = props.semesterList;
+    this.selectYear = props.year;
+    this.selectTerm = props.term;
+    this.function = props.function;
   }
-
+  testCourse(input){
+      console.log('course button',input);
+  }
+  testTerm(input){
+      console.log('sem button', input);
+  }
+  test(){
+    console.log('yoyo')
+  }
   //-----------Helper Functions-----------------
   semesterButton(year_in, term_in){
     if(year_in !== undefined){
-      return (<SidebarButton class='sidebar-semester-button' term={term_in} year = {year_in} />);
+      return (<SidebarButton handleClick={this.function} class='sidebar-semester-button' key={year_in+term_in} term={term_in} year={year_in} />);
     }
   }
 
   courseButtons(year_in, term_in){
     return this.props.courseList.map( course => {
       if( course["year"] === year_in && course['term'] === term_in){
-        return (<SidebarButton class='sidebar-course-button' key={course.id} department={course.department} number={course.number}/>)
+        return (<SidebarButton handleClick={this.function} class='sidebar-course-button' key={course.id} department={course.department} number={course.number}/>)
       }
     });
   }
@@ -68,7 +74,9 @@ class MainPaneObj extends Component {
   // Parameters: year, term, dept, course
   constructor(props){
     super(props);
-    this.viewType = this.props.view;
+    this.state = {
+      view: this.props.view || 'default'
+    }
   }
   
   render() {
@@ -77,7 +85,7 @@ class MainPaneObj extends Component {
         <div className="main-toolbar">
           <MainToolbar params={this.props.params} />
         </div>
-          <MainView view={this.viewType} params ={this.props.params}/>
+          <MainView view={this.state.view} params={this.props.params}/>
         </div>
 
     );

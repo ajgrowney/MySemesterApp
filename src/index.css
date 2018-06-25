@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Oxygen');
 
-html{
+html, body, #root{
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
-body {
+
+#root-container {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -11,7 +14,7 @@ body {
   grid-template-rows: 15% auto;
   grid-template-columns: 20% 80%;
 
-  background-color: #f3f3f3;
+  background-color: white;
 }
 #header{
   /*-----body grid location-----*/
