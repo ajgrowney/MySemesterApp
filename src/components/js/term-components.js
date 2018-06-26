@@ -27,7 +27,7 @@ class TermComponentObj extends Component {
         return(
             <div className="term-component">
                 <div id='title'>{this.state.text}</div>
-                <div id='grade'>{this.state.grade}</div>
+                <center><div id='grade'>{this.state.grade}</div></center>
             </div>
         )
     }

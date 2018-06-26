@@ -156,8 +156,7 @@ export const myCourses = [
         term: 'Fall',
         department: 'EECS',
         number: 581,
-        displayString: 'EECS 581',
-        currentGrade: 93
+        displayString: 'EECS 581'
     },
     {
         id: 2,
@@ -165,8 +164,7 @@ export const myCourses = [
         term: 'Fall',
         department: 'EECS',
         number: 662,
-        displayString: 'EECS 662',
-        currentGrade: 81
+        displayString: 'EECS 662'
     },
     {
         id: 3,
@@ -174,8 +172,7 @@ export const myCourses = [
         term: 'Fall',
         department: 'PHSX',
         number: 511,
-        displayString: 'PHSX 511',
-        currentGrade: 85
+        displayString: 'PHSX 511'
     },
     {
         id: 4,
@@ -183,8 +180,7 @@ export const myCourses = [
         term: 'Spring',
         department: 'EECS',
         number: 101,
-        displayString: 'EECS 101',
-        currentGrade: 100
+        displayString: 'EECS 101'
     }
 ]
 export const mySemesters = [

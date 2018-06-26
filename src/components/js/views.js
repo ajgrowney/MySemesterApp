@@ -68,7 +68,9 @@ class MainViewObj extends Component {
 			)
 		}else if(view_in === 'term'){
 			return(
-				<div id='right-term' className='main-right'>Term</div>
+				<div id='right-term' className='main-right'>
+					{termHelpers.loadProgress(this.state.object)}
+				</div>
 			)
 		}else{
 			return(

@@ -6,8 +6,9 @@ function term_loadComponents(input, courseList){
     console.log(input)
     return courseList.map( course => {
         if(input["year"] === course["year"] && input["term"] === course["term"]){
-
+            // Find Syllabus
             let course_syllabus = mySyllabus.find( syllabus => syllabus.id === course.id);
+            // Calculate Averages
             let averages = course_syllabus.components.reduce((total, object) => {
                 let running = 0;
                 let counter = 0;
@@ -19,7 +20,9 @@ function term_loadComponents(input, courseList){
                 total.push(avg_object);
                 return total;
             }, []);
+
             console.log(averages);
+            //Determine Grade Percentage based off averages
             let totalGrade = 0;
             let totalPercentage = 0;
             averages.map(element => {
@@ -36,6 +39,14 @@ function term_loadComponents(input, courseList){
         }
     });
 }
+
+function term_loadProgress(courseList){
+    console.log(courseList)
+    return(
+        <div>Progress Input</div>
+    )
+}
 export const termHelpers = {
-    loadComponents: term_loadComponents
+    loadComponents: term_loadComponents,
+    loadProgress: term_loadProgress
 }
