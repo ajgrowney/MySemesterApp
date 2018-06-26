@@ -36,14 +36,15 @@ class MainViewObj extends Component {
 			return(
 				<div id='left-course' className= 'main-left'>
 					<h2 id="course-display-string">{ myCourses.find( course => this.state.object.id === course.id).displayString || 'eggs' }</h2>
-					<div className='main-left-components'>{courseHelpers.loadComponents(this.state.object)}</div>
+					<div className='main-left-components'>{courseHelpers.loadComponents(this.state.object) }</div>
 				</div>
 			)
 		}else if(view_in === 'term'){
+
 			return(
 				<div id='left-term' className='main-left'>
 					<h2>{ this.state.object.displayString }</h2>
-					<div className='main-left-components'>{termHelpers.loadComponents()}</div>
+					<div className='main-left-components'>{termHelpers.loadComponents(this.state.object, myCourses)}</div>
 				</div>
 			)
 		}else{

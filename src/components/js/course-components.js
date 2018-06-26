@@ -12,6 +12,7 @@ class CourseComponentObj extends Component {
         }
 
     }
+    
     componentWillReceiveProps(newProps){
         this.setState({
             title: newProps.component_type,

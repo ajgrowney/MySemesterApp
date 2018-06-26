@@ -21,6 +21,7 @@
     "electron-dev": "set ELECTRON_START_URL=http://localhost:3000 && electron ."
   },
   "devDependencies": {
-    "electron": "^2.0.2"
+    "electron": "^2.0.2",
+    "less": "^3.0.4"
   }
 }

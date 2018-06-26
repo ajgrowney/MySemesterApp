@@ -24,15 +24,9 @@ class App extends Component{
     render(){
         return(
             <div id="root-container">
-                <div id="header">
-                    <Header />
-                </div>
-                <div id="sidebar-nav">
-                    <Sidebar function={this.handleView.bind(this)} courseList={myCourses} semesterList={mySemesters} />
-                </div>
-                <div id="main-pane">
-                    <MainPane view={this.state.view} params={this.state.object}/>
-                </div>
+                <div id="header"><Header /></div>
+                <div id="sidebar-nav"><Sidebar function={this.handleView.bind(this)} courseList={myCourses} semesterList={mySemesters} /></div>
+                <div id="main-pane"><MainPane view={this.state.view} params={this.state.object}/></div>
             </div>
         )
     }

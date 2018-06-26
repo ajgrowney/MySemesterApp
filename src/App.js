@@ -36,7 +36,6 @@ class SidebarObj extends Component {
   render() {
     return this.semesterList.map( (semester)=> {
       return(
-      
       <div className="sidebar-semester">
         {this.semesterButton(semester.year, semester.term)}
         {this.courseButtons(semester.year, semester.term)}
@@ -65,14 +64,12 @@ class MainPaneObj extends Component {
   // Parameters: year, term, dept, course
   constructor(props){
     super(props);
-    console.log("INIT PROPS:", props)
     this.state = {
       view: this.props.view || 'default',
       object: this.props.params || {}
     }
   }
   componentWillReceiveProps(newProps){
-    console.log("UPDATED PROPS: ", newProps)
     this.setState({
       view: newProps.view,
       object: newProps.params
@@ -82,11 +79,9 @@ class MainPaneObj extends Component {
   render() {
     return (
       <div className="main-container">
-        <div className="main-toolbar">
-          <MainToolbar params={this.state.object} />
-        </div>
-          <MainView view={this.state.view} params={this.state.object}/>
-        </div>
+        <div className="main-toolbar"><MainToolbar params={this.state.object} /></div>
+        <MainView view={this.state.view} params={this.state.object}/>
+      </div>
 
     );
   }
