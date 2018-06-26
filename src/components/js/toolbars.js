@@ -11,6 +11,13 @@ class MainToolbarObj extends Component {
 
   }
 
+  componentWillReceiveProps(newProps){
+    console.log(newProps);
+    this.setState({
+      object: newProps.params
+    })
+  }
+
   render() {
     return Object.keys(this.state.object).map( input => {
         if((input === 'year' || input === 'term' || input === 'displayString')){

@@ -2,8 +2,16 @@ import React from 'react'
 import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
+// Components
+import { CourseComponent } from '../course-components'
 
-export function course_loadProgress(averages, course_syllabus){
+function course_loadComponents(object_in){
+    return object_in.components.map( comp => {
+        return <CourseComponent component_type={comp} component_data={object_in[comp]}/>
+    })
+}
+
+function course_loadProgress(averages, course_syllabus){
     let totalGrade = 0;
     let totalPercentage = 0;
     averages.map(element => {
@@ -12,8 +20,6 @@ export function course_loadProgress(averages, course_syllabus){
         if (!isNaN(element[selected_key])) {
             totalPercentage += course_comp_percentage;
             totalGrade += element[selected_key] * course_comp_percentage;
-        } else {
-            console.log('NaN')
         }
     })
     totalGrade = Math.round(((totalGrade / totalPercentage) * 10) / 10);
@@ -21,7 +27,7 @@ export function course_loadProgress(averages, course_syllabus){
     return (<CircularProgressbar className="progress-bar" percentage={parseInt(totalGrade)} styles={{ path: { stroke: 'black' } }} />)
 }
 
-export function course_loadAverages(averages, course_syllabus){
+function course_loadAverages(averages, course_syllabus){
 
     course_syllabus.components.reduce((total, object) => {
         let running = 0;
@@ -48,4 +54,10 @@ export function course_loadAverages(averages, course_syllabus){
             </center>
         )
     })
+}
+
+export const courseHelpers = {
+    loadAverages: course_loadAverages,
+    loadProgress: course_loadProgress,
+    loadComponents: course_loadComponents
 }

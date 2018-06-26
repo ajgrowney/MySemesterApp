@@ -1,16 +1,26 @@
 .main-pane-container{
 	display: grid;
 	height: 100%;
+	width: 100%;
+	grid-template-columns: 50% 25% 25%;
+	grid-template-rows: 100%;
 }
 
 /*---Left Side*/
 .main-left{
 	background-color: #82A0BC;
-	grid-column: 1;
-	height: 100%;
+	grid-row: 1;
 	width: 100%;
-	padding-left padding-right: 1.5%;
+	padding: 1.5%;
+	padding-bottom: none;
 }
+#left-course{
+	grid-column: 1;
+}
+#left-term{
+	grid-column: 1/3;
+}
+
 .main-left-components{
 	height: 80%;
 }
@@ -18,7 +28,6 @@
 /*Right side----*/
 .main-right{
 	grid-row: 1;
-	grid-column: 2;
 	display: grid;
 	grid-template-rows: 50% 50%;
 	color: black;
@@ -26,13 +35,19 @@
 	height: 100%;
 	width: 100%;
 }
-
+#right-course{
+	grid-column: 2/4;
+}
+#right-term{
+	grid-column: 3/4;
+}
 .average-container{
 	margin-top: 2%;	
 }
 
 .progress-bar{
 	grid-row: 1;
+	padding: 2%;
 	width: 100%;
 	height: 100%;
 	align-content: center;

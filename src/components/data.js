@@ -133,6 +133,19 @@ export const mySyllabus = [
                 }
             ]
         }
+    },
+    {
+        id: 4,
+        components: ["Attendance"],
+        'Attendance': {
+            percentage: '100%',
+            scores:[
+                {
+                    title: 'General Attendance',
+                    result: 100
+                }
+            ]
+        }
     }
 ]
 

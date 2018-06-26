@@ -6,13 +6,10 @@ class MainToolbarButtonObj extends Component {
     constructor(props){
         super(props);
         this.text = props.info;
-        console.log(this.text);
     }
     
     render() {
-        return (
-            <button className="main-toolbar-button">{this.text}</button>
-        );
+        return (<button className="main-toolbar-button">{this.text}</button>);
     }
 }
 

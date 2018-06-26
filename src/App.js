@@ -18,7 +18,7 @@ class SidebarObj extends Component {
   //-----------Helper Functions-----------------
   semesterButton(year_in, term_in){
     if(year_in !== undefined){
-      let key = (""+year_in+term_in);
+      let key = (""+term_in+" "+year_in);
       return (<SidebarButton handleClick={this.function} class='sidebar-semester-button' id={key} term={term_in} year={year_in} />);
     }
   }
@@ -65,15 +65,18 @@ class MainPaneObj extends Component {
   // Parameters: year, term, dept, course
   constructor(props){
     super(props);
+    console.log("INIT PROPS:", props)
     this.state = {
       view: this.props.view || 'default',
       object: this.props.params || {}
     }
   }
   componentWillReceiveProps(newProps){
+    console.log("UPDATED PROPS: ", newProps)
     this.setState({
       view: newProps.view,
-      object: newProps.params});
+      object: newProps.params
+    });
   }
   
   render() {
