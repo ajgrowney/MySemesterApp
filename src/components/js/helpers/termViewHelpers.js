@@ -42,9 +42,7 @@ function term_loadComponents(input, courseList){
 
 function term_loadProgress(courseList){
     console.log(courseList)
-    return(
-        <div>Progress Input</div>
-    )
+    return(<progress max={100} min={0} value={45} />)
 }
 export const termHelpers = {
     loadComponents: term_loadComponents,
