@@ -1,5 +1,7 @@
+/*------Left Side----------*/
 .term-component{
     display: grid;
+    border: 3px solid green;
     grid-template-columns: 80% 20%;
     margin: 2%;
     padding: 0%;
@@ -15,4 +17,19 @@
     grid-column: 2;
     background-color: #A7CCED;
 
+}
+.vertical-progress{
+    border: 3px solid pink;
+    padding-top: 10%;
+    height: 100%;
+    width: 100%;
+    color: black;
+    align-content: center;
+}
+.progress-blocks{
+	border: 1px solid white;
+    display: block;
+    margin: 0;
+    width: 80%;
+    height: 7%;
 }
