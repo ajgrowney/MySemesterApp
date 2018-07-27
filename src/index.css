@@ -2,6 +2,7 @@
 
 html, body, #root{
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -10,18 +11,18 @@ html, body, #root{
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
   display: grid;
   grid-template-rows: 15% auto;
   grid-template-columns: 20% 80%;
-
   background-color: white;
 }
 #header{
   /*-----body grid location-----*/
   grid-row: 1;
   grid-column: 1/3;
-
-  background-color: inherit;
+  text-align: center;
+  background-color: rgb(174, 174, 174);
   color: rgb(100, 100, 101);
   align-self: center;
   font-family: 'Oxygen';

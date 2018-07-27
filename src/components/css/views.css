@@ -39,6 +39,7 @@
 	grid-row: 1;
 	color: black;
 	background-color: #545E75;
+	height: 100%;
 }
 #right-course{
 	grid-column: 2/4;

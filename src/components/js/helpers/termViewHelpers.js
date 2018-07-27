@@ -43,7 +43,7 @@ function term_loadComponents(input, courseList){
 function term_loadProgress(courseList){
     let loadBlocks = (courseList) => {
         let arr = [];
-        for(let i=0; i<10; i++){
+        for(let i=0; i<50; i++){
             arr.push(<div class="progress-blocks" />)
         }
         return arr;

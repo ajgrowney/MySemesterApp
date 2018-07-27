@@ -64,12 +64,14 @@ class MainPaneObj extends Component {
   // Parameters: year, term, dept, course
   constructor(props){
     super(props);
+    console.log(this.props.params);
     this.state = {
       view: this.props.view || 'default',
       object: this.props.params || {}
     }
   }
   componentWillReceiveProps(newProps){
+    console.log(newProps.params)
     this.setState({
       view: newProps.view,
       object: newProps.params
