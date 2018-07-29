@@ -20,17 +20,41 @@
 }
 /*-------Right Side--------*/
 .vertical-progress{
-    grid-row: 1/3;
-    margin-top: 1%;
-    height: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 80% 20%;
     width: 100%;
+    height: 100%;
+    margin: auto;
     color: black;
 }
+.gpa-block-container{
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.progress-scale{
+    height: 25%;
+}
+.progress-block-container{
+    grid-column: 2;
+    grid-row: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+}
 .progress-blocks{
-	border: 0.5px solid white;
+    border: 0.5px solid red;
     display: block;
     margin: auto;
     width: 6em;
-    height: 1%;
+    height: 0.5em;
     align-self: center;
+}
+.info-block-container{
+    grid-column: 1/3;
+    grid-row: 2;
+    height: 100%;
 }

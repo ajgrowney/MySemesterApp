@@ -27,6 +27,9 @@ function course_loadProgress(averages, course_syllabus){
     return (<CircularProgressbar className="progress-bar" percentage={parseInt(totalGrade)} styles={{ path: { stroke: 'black' } }} />)
 }
 
+/*
+*
+*/
 function course_loadAverages(averages, course_syllabus){
 
     course_syllabus.components.reduce((total, object) => {
