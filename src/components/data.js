@@ -185,11 +185,15 @@ export const myCourses = [
 ]
 export const mySemesters = [
     {
+        id: 1,
+        key: 'sp_2016',
         term: 'Spring',
         year: 2016,
         displayString: 'Spring 2016'
     },
     {
+        id: 2,
+        key: 'fa_2017',
         term: 'Fall',
         year: 2017,
         displayString: 'Fall 2017'

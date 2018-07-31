@@ -1,41 +1,38 @@
 import React, { Component } from 'react'
 // Internal Dependencies
 import '../css/views.css'
-import { mySyllabus, myCourses, mySemesters } from '../data'
+import { myCourses } from '../data'
 import { courseHelpers } from './helpers/courseViewHelpers'
 import { termHelpers } from './helpers/termViewHelpers'
 
-
+/**
+ * @param { String } view: type of view to be rendered
+ * @param { Object } params: object passed in to be rendered
+ * @param { String } display: title of a course/term to be rendered
+ */
 
 class MainViewObj extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			view: props.view || 'default',
-		}
-		if(this.state.view === 'course'){
-			this.state.object = mySyllabus.find( course => (course.id === props.params.id)) || 0;
-		}else if(this.state.view === 'term'){
-			console.log('Term view');
-			this.state.object = mySemesters.find( sem => (sem.displayString === 'Fall 2017'));
+			view: props.view,
+			display: props.display,
+			object: props.params
 		}
 	}
 	componentWillReceiveProps(newProps){
 		this.setState({
-			view: newProps.view
+			view: newProps.view,
+			display: newProps.display,
+			object: newProps.params
 		});
-		if(newProps.view === 'course'){
-			this.setState({object: mySyllabus.find( course => (course.id === newProps.params)) || 0});
-		}else if(newProps.view === 'term'){
-			this.setState({object: mySemesters.find( sem => (sem.displayString === newProps.params))});
-		}
 	}
 
 	loadLeftSide(view_in){
 		if(view_in === 'course'){
 			return(
 				<div id='left-course' className= 'main-left'>
-					<h2 id="course-display-string">{ myCourses.find( course => this.state.object.id === course.id).displayString || 'eggs' }</h2>
+					<h2 id="course-display-string">{ this.state.display}</h2>
 					<div className='main-left-components'>{courseHelpers.loadComponents(this.state.object) }</div>
 				</div>
 			)
@@ -43,14 +40,14 @@ class MainViewObj extends Component {
 
 			return(
 				<div id='left-term' className='main-left'>
-					<h2>{ this.state.object.displayString }</h2>
+					<h2>{ this.state.display }</h2>
 					<div className='main-left-components'>{termHelpers.loadComponents(this.state.object, myCourses)}</div>
 				</div>
 			)
 		}else{
 			return(
 				<div id='left-year' className='main-left'>
-					<h2>{this.state.object.displayString}</h2>
+					<h2>{this.state.display}</h2>
 					<div className='main-left-components'>Here</div>
 				</div>
 			)

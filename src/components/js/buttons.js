@@ -14,8 +14,8 @@ class MainToolbarButtonObj extends Component {
 }
 
 class SidebarButtonObj extends Component {
-
     constructor(props){
+        console.log("Side button", props);
         super(props);
         this.class = props.class || 'generic-button';
         this.dept = props.department || 'Course';

@@ -32,7 +32,7 @@ function course_loadProgress(averages, course_syllabus){
 */
 function course_loadAverages(averages, course_syllabus){
 
-    course_syllabus.components.reduce((total, object) => {
+    course_syllabus.components.forEach( (object) => {
         let running = 0;
         let counter = 0;
         course_syllabus[object].scores.forEach((obj) => {
@@ -41,7 +41,7 @@ function course_loadAverages(averages, course_syllabus){
         let avg_result = running / counter;
         let avg_object = { [object]: avg_result }
         averages.push(avg_object);
-    }, []);
+    });
 
     return averages.map(key => {
         // Averages = [{selected_key: calculated_avg}, ...]

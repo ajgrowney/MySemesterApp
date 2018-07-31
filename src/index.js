@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import registerServiceWorker from './registerServiceWorker';
 import {Header, Sidebar, MainPane} from './App';
 import { myCourses, mySemesters } from './components/data'
 
-let view_id=0;
+let view_id=2;
 
 class App extends Component{
     constructor(props){
@@ -16,6 +15,7 @@ class App extends Component{
         }
     }
     handleView(view_in, obj_in){
+        console.log("HANDLING VIEW: ", view_in, obj_in);
         this.setState({
             view: view_in || 'course',
             object: obj_in || 0
@@ -35,5 +35,3 @@ class App extends Component{
 }
 
 ReactDOM.render(<App view={'course'} obj={myCourses[view_id]}/>, document.getElementById('root'));
-
-registerServiceWorker();

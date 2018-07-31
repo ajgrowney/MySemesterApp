@@ -19,7 +19,7 @@ function term_loadProgress(courseList){
     let loadProgressBlocks = (courseList) => {
         let arr = [];
         for(let i=0; i<40; i++){
-            arr.push(<div class="progress-blocks" />)
+            arr.push(<div className="progress-blocks" />)
         }
         return arr;
     }

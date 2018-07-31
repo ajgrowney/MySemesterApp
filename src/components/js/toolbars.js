@@ -5,6 +5,7 @@ import './../css/toolbars.css'
 class MainToolbarObj extends Component {
   constructor(props){
     super(props);
+    console.log("TOOLABR INIT: ", props);
     this.state = {
       object: props.params
     }
@@ -12,7 +13,7 @@ class MainToolbarObj extends Component {
   }
 
   componentWillReceiveProps(newProps){
-    console.log(newProps);
+    console.log("TOOLBAR NEW: ", newProps);
     this.setState({
       object: newProps.params
     })
