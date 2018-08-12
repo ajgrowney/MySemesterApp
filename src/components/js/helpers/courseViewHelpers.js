@@ -5,13 +5,12 @@ import 'react-circular-progressbar/dist/styles.css';
 // Components
 import { CourseComponent } from '../course-components'
 
-function course_loadComponents(object_in){
-    return object_in.components.map( comp => {
-        return <CourseComponent component_type={comp} component_data={object_in[comp]}/>
-    })
+let course_loadComponents = (object_in) => {
+    return object_in.components.map(comp => <CourseComponent component_type={comp} component_data={object_in[comp]}/>)
+        .sort((a,b) => parseInt(a.props.component_data.percentage) >= parseInt(b.props.component_data.percentage) ? -1 : 1);
 }
 
-function course_loadProgress(averages, course_syllabus){
+let course_loadProgress = (averages, course_syllabus) => {
     let totalGrade = 0;
     let totalPercentage = 0;
     averages.map(element => {
@@ -30,7 +29,7 @@ function course_loadProgress(averages, course_syllabus){
 /*
 *
 */
-function course_loadAverages(averages, course_syllabus){
+let course_loadAverages = (averages, course_syllabus) => {
 
     course_syllabus.components.forEach( (object) => {
         let running = 0;

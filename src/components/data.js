@@ -156,7 +156,8 @@ export const myCourses = [
         term: 'Fall',
         department: 'EECS',
         number: 581,
-        displayString: 'EECS 581'
+        displayString: 'EECS 581',
+        creditHours: 3
     },
     {
         id: 2,
@@ -164,7 +165,8 @@ export const myCourses = [
         term: 'Fall',
         department: 'EECS',
         number: 662,
-        displayString: 'EECS 662'
+        displayString: 'EECS 662',
+        creditHours: 4
     },
     {
         id: 3,
@@ -172,7 +174,8 @@ export const myCourses = [
         term: 'Fall',
         department: 'PHSX',
         number: 511,
-        displayString: 'PHSX 511'
+        displayString: 'PHSX 511',
+        creditHours: 3
     },
     {
         id: 4,
@@ -180,7 +183,8 @@ export const myCourses = [
         term: 'Spring',
         department: 'EECS',
         number: 101,
-        displayString: 'EECS 101'
+        displayString: 'EECS 101',
+        creditHours: 1
     }
 ]
 export const mySemesters = [

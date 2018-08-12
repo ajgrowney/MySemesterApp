@@ -59,7 +59,7 @@ class HeaderObj extends Component {
 
 /** Main Component
 /* @param { String } view contains the view type for main pane to render
-/* @param  { Object } object_id contains the id for the view to render
+/* @param  { Object } params contains the id for the view to render
 */
 class MainPaneObj extends Component {
   // Parameters: year, term, dept, course

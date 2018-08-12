@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import '../css/course-components.css'
 
+/** Single course object within the left side of main commponent in court view
+ * @param { Object } component_data contains scores array and percentage number
+ * @param { String } component_type contains the title to be displayed
+ */
 
 class CourseComponentObj extends Component {
     constructor(props){
@@ -44,8 +48,7 @@ class CourseComponentObj extends Component {
     render(){
         return(
             <div style={{height: this.state.percentage, fontSize: this.state.percentage*10}} className="course-component">
-                <div id='title'>{this.state.title}</div>
-                <div id='percentage'>{this.state.percentage}</div>
+                <div id='title'>{this.state.title}</div><div id='percentage'>{this.state.percentage}</div>
                 {this.loadScores()}
             </div>
         )

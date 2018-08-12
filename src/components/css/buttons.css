@@ -27,3 +27,6 @@
 .sidebar-course-button:hover{
     color: white;
 }
+.termAddCourse{
+    color: red;
+}

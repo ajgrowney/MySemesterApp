@@ -5,17 +5,19 @@ import {Header, Sidebar, MainPane} from './App';
 import { myCourses, mySemesters } from './components/data'
 
 let view_id=2;
-
+/**
+ * @param { String } view contains either "term", "course", or "year"
+ * @param { Object } obj contains an object in myCourses object at the current view_id
+ */
 class App extends Component{
     constructor(props){
         super(props);
         this.state = {
-            view: this.props.view || 'default',
+            view: this.props.view,
             object: this.props.obj
         }
     }
     handleView(view_in, obj_in){
-        console.log("HANDLING VIEW: ", view_in, obj_in);
         this.setState({
             view: view_in || 'course',
             object: obj_in || 0

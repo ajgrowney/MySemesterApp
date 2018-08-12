@@ -15,7 +15,6 @@ class MainToolbarButtonObj extends Component {
 
 class SidebarButtonObj extends Component {
     constructor(props){
-        console.log("Side button", props);
         super(props);
         this.class = props.class || 'generic-button';
         this.dept = props.department || 'Course';
@@ -29,9 +28,11 @@ class SidebarButtonObj extends Component {
     render() {
         if(this.class === 'sidebar-course-button'){
 
-            return (<button onClick={this.function.bind(this,'course',this.id)} className={this.class}>{this.dept + " "+ this.number}</button>);
+            return (<div><button onClick={this.function.bind(this,'course',this.id)} className={this.class}>{this.dept + " "+ this.number}</button></div>);
         }else if(this.class === 'sidebar-semester-button'){
-            return (<button onClick={this.function.bind(this,'term',this.id)} className={this.class}>{this.term + " "+ this.year}</button>);
+            return (<div><button onClick={this.function.bind(this,'term',this.id)} className={this.class}>{this.term + " "+ this.year}</button>
+                <button className={"termAddCourse"} onClick={console.log("live")}>+</button>
+            </div>);
         }else{
             return(<button className={this.class}>Generic</button>)
         }
